@@ -1,5 +1,5 @@
 ---
-import { Image, Picture } from '@astrojs/image/components';
+import { Picture } from '@astrojs/image/components';
 import Layout from '../layouts/Layout.astro';
 
 import avatar from '../images/drewtown.webp';
@@ -48,7 +48,7 @@ const images = ['/images/carousel-1.jpg', '/images/carousel-2.jpg', '/images/car
     <main class="px-16 py-8">
       <div class="mt-12">
         <div class="max-w-2xl">
-          <Image src={avatar} format="avif" width={128} height={128} class="rounded-full w-24 h-24 my-8" alt="Photo of Drew Town" />
+          <Picture src={avatar} alt="Photo of Drew Town" sizes="0" widths={[128]} class="rounded-full w-24 h-24 my-8" loading="lazy" decoding="async" />
           <h1 class="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">Web developer, Systems engineer and amateur hiker, camper, explorer.</h1>
           <p class="text-slate-400 mt-8 text-lg">
             I'm Drew Town a web developer and systems engineer living in Colorado Springs, Colorado. I strive to always be learning, traveling and growing. Sharing updates, trials and tribulations in
@@ -194,7 +194,7 @@ const images = ['/images/carousel-1.jpg', '/images/carousel-2.jpg', '/images/car
               work.map((item) => (
                 <li class="flex gap-4">
                   <div class="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-slate-800/5 ring-1 ring-slate-900/5 dark:border dark:border-slate-700/50 dark:bg-slate-800 dark:ring-0">
-                    <img alt="" src={item.image} decoding="async" class="h-7 w-7 rounded-full" loading="lazy" style="color:transparent" width="32" height="32" />
+                    <Picture src={item.image} alt="" sizes="0" widths={[32]} aspectRatio={1 / 1} class="h-7 w-7 rounded-full" loading="lazy" decoding="async" />
                   </div>
                   <dl class="flex flex-auto flex-wrap gap-x-2">
                     <dt class="sr-only">Company</dt>
