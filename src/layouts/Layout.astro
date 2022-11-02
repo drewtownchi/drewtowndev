@@ -1,0 +1,88 @@
+---
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+import SidebarMobileOpener from '../components/SidebarMobileOpener.vue';
+import SidebarMobile from '../components/SidebarMobile.vue';
+import { Image } from '@astrojs/image/components';
+
+import avatar from '../images/drewtown.webp';
+
+const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'Search', href: '/search' },
+  { name: 'Archive', href: '/archive' },
+  { name: 'About', href: '/about' },
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} - DrewTown.dev</title>
+  </head>
+  <body class="bg-slate-900 h-full">
+    <div class="fixed inset-0 flex justify-center sm:px-8">
+      <div class="flex w-full max-w-7xl lg:px-8"><div class="w-full ring-1 bg-slate-800 ring-slate-300/20"></div></div>
+    </div>
+    <div class="relative">
+      <nav class="max-w-7xl mx-auto">
+        <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center w-full">
+              <div class="flex-1">
+                {
+                  Astro.url.pathname !== '/' && (
+                    <div class="h-10 w-10 rounded-full bg-slate-800/90 p-0.5 shadow-lg ring-white/10">
+                      <a aria-label="Home" class="pointer-events-auto" href="/">
+                        <Image
+                          alt=""
+                          sizes="2.25rem"
+                          src={avatar}
+                          format="avif"
+                          decoding="async"
+                          class="h-9 w-9 rounded-full bg-slate-800 object-cover"
+                          style="color: transparent;"
+                          aspectRation={1 / 1}
+                        />
+                      </a>
+                    </div>
+                  )
+                }
+              </div>
+              <div class="hidden sm:ml-6 sm:block flex-1">
+                <div class="flex space-x-4">
+                  {
+                    navigation.map((item) => (
+                      <a
+                        href={item.href}
+                        class:list={[
+                          'rounded-md px-3 py-2 text-sm font-medium',
+                          { 'text-indigo-50 bg-indigo-900': Astro.url.pathname === item.href, 'text-slate-300 hover:text-indigo-500': Astro.url.pathname !== item.href },
+                        ]}>
+                        {item.name}
+                      </a>
+                    ))
+                  }
+                </div>
+              </div>
+              <div class="flex sm:flex-1 justify-end">
+                <span class="block sm:hidden"><SidebarMobileOpener client:idle /></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <SidebarMobile navigation={navigation} page={Astro.url.pathname} client:idle />
+      </nav>
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

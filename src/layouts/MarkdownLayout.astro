@@ -1,0 +1,26 @@
+---
+import Layout from './Layout.astro';
+import avatar from '../images/drewtown.webp';
+import { Image } from '@astrojs/image/components';
+const { content } = Astro.props;
+---
+
+<Layout title={content.title}>
+  <div class="mx-auto max-w-2xl">
+    <h2 class="mt-6 text-4xl font-bold tracking-tight text-slate-100 sm:text-5xl">{content.title}</h2>
+    <section>
+      <div class="flex my-8">
+        <Image src={avatar} width={128} height={128} format="avif" alt="" class="h-16 w-16 rounded-full bg-slate-800/90 p-0.5 shadow-lg" />
+        <div class="ml-4">
+          <p class="text-xl text-gray-300">{content.author}</p>
+          <p class="text-slate-400 text-sm">
+            <span>{new Intl.DateTimeFormat('en-US').format(new Date(content.date))}</span> • <span>{content.minutesRead}</span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <article class="prose lg:prose-lg prose-invert mt-16">
+      <slot />
+    </article>
+  </div>
+</Layout>

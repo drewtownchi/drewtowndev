@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Search from '@components/Search.vue';
+---
+
+<Layout title="Search">
+  <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 z-50">
+    <main class="px-16 py-8">
+      <h1 class="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">Search</h1>
+      <Search client:idle />
+    </main>
+  </div>
+</Layout>
