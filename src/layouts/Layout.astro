@@ -6,7 +6,7 @@ export interface Props {
 const { title } = Astro.props;
 import SidebarMobileOpener from '../components/SidebarMobileOpener.vue';
 import SidebarMobile from '../components/SidebarMobile.vue';
-import { Image } from '@astrojs/image/components';
+import { Picture } from '@astrojs/image/components';
 
 import avatar from '../images/drewtown.webp';
 
@@ -41,16 +41,7 @@ const navigation = [
                   Astro.url.pathname !== '/' && (
                     <div class="h-10 w-10 rounded-full bg-slate-800/90 p-0.5 shadow-lg ring-white/10">
                       <a aria-label="Home" class="pointer-events-auto" href="/">
-                        <Image
-                          alt=""
-                          sizes="2.25rem"
-                          src={avatar}
-                          format="avif"
-                          decoding="async"
-                          class="h-9 w-9 rounded-full bg-slate-800 object-cover"
-                          style="color: transparent;"
-                          aspectRation={1 / 1}
-                        />
+                        <Picture src={avatar} alt="" sizes="0" widths={[32]} aspectRatio={1 / 1} class="h-9 w-9 rounded-full bg-slate-800 object-cover" loading="lazy" decoding="async" />
                       </a>
                     </div>
                   )
