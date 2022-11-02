@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import * as lunr from 'lunr';
+import lunr from 'lunr';
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/outline/esm/index.js';
 import { computed, onBeforeMount, ref } from 'vue';
 import card from './Card.vue';
