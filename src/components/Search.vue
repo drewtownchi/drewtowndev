@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-1 justify-center px-2 lg:ml-6">
+  <div class="mt-12 flex flex-1 justify-center px-2 lg:ml-6">
     <div class="w-full max-w-lg lg:max-w-xs">
       <label for="search" class="sr-only">Search</label>
       <div class="relative text-slate-400 focus-within:text-slate-600">

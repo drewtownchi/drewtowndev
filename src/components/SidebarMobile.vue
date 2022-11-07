@@ -41,7 +41,7 @@
               </div>
             </TransitionChild>
             <div class="h-0 flex-1 overflow-y-auto pt-5 pb-4">
-              <div class="mb-4 flex flex-shrink-0 items-center px-4 text-sm text-slate-300">Navigation</div>
+              <div class="mb-4 flex flex-shrink-0 items-center px-4 text-xl font-semibold text-slate-300">DrewTown.dev</div>
               <nav class="flex-1 space-y-1 bg-slate-800 px-2" aria-label="Sidebar">
                 <template v-for="item in props.navigation" :key="item.name">
                   <div>
@@ -60,9 +60,7 @@
             <div class="flex flex-shrink-0 bg-slate-700 p-4">
               <a href="/about-us" class="group block flex-shrink-0">
                 <div class="flex items-center">
-                  <div>
-                    <img class="inline-block h-10 w-10 rounded-full" :src="avatar" alt="" />
-                  </div>
+                  <div><img class="inline-block h-10 w-10 rounded-full" src="../images/drewtown.webp" alt="" /></div>
                   <div class="ml-3">
                     <p class="text-base font-medium text-white">Created By</p>
                     <p class="text-sm font-medium text-slate-400 group-hover:text-slate-300">Drew Town</p>
@@ -87,7 +85,6 @@ import { CalculatorIcon } from '@heroicons/vue/24/solid/esm/index.js';
 
 import { sidebarOpen } from '../menuStore';
 import { useStore } from '@nanostores/vue';
-import avatar from '../images/drewtown.webp';
 
 const props = defineProps({
   page: {
