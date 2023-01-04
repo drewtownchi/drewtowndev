@@ -1,11 +1,56 @@
 ---
+import { Picture } from '@astrojs/image/components';
 import Layout from '../layouts/Layout.astro';
+import { Twitter, Github, Instagram } from 'lucide-vue-next';
+import avatar from '../images/about.jpg';
 ---
 
 <Layout title="About">
   <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 z-50">
-    <main class="px-16 py-8">
-      <h1 class="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">About</h1>
+    <main class="px-16 py-16">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-y-16 lg:gap-y-12 lg:grid-rows-[auto_1fr]">
+        <Picture src={avatar} alt="Photo of Drew Town" sizes="0" widths={[512]} class="w-4/5 mx-auto rounded-lg rotate-3" loading="lazy" decoding="async" />
+        <div class="space-y-6 lg:order-first lg:row-span-2">
+          <p class="text-4xl font-bold tracking-tight text-slate-800 dark:text-slate-100 sm:text-5xl">
+            Welcome to my corner of the internet! My name is Drew Town and I'm a web developer and systems engineer based in Colorado Springs, Colorado.
+          </p>
+          <p class="text-lg text-slate-600 dark:text-slate-400">
+            I have a passion for all things tech and love nothing more than tackling a challenging problem and finding a creative solution. When I'm not busy coding or debugging, you can find me
+            hitting the trails as a hiker, camper, and all-around adventure seeker.
+          </p>
+          <p class="text-lg text-slate-600 dark:text-slate-400">
+            I received my bachelor's degree in Network Technologies from DePaul University in 2010 and have been working in the tech and finance industries ever since. I started my career as an intern
+            at Group 1 Trading and worked my way up to Senior Systems Engineer over the course of 11 years. In 2014, I married the love of my life, Megan.
+          </p>
+          <p class="text-lg text-slate-600 dark:text-slate-400">
+            I'm always striving to learn, grow, and have a little fun along the way. If you're interested in tech, the outdoors, or just want to follow along on my journey, be sure to follow me for
+            updates, trials, and tribulations. Thanks for stopping by!
+          </p>
+        </div>
+        <div class="lg:pl-20">
+          <ul class="flex flex-col space-y-4">
+            <li>
+              <a href="https://twttier.com/drewtown_chi" target="_blank" rel="noopener noreferrer" class="text-slate-400 group">
+                <Twitter aria-hidden="true" stroke="currentColor" class="h-6 w-6 mr-2 pb-1 inline-block group-hover:text-indigo-400" />
+                <span class="text-sm group-hover:text-indigo-400"> Follow me on Twitter</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://github.com/drewtownchi" target="_blank" rel="noopener noreferrer" class="text-slate-400 group">
+                <Github aria-hidden="true" stroke="currentColor" class="h-6 w-6 mr-2 pb-1 inline-block group-hover:text-indigo-400" />
+                <span class="text-sm group-hover:text-indigo-400"> Follow me on Github</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com/drewtown_chi" target="_blank" rel="noopener noreferrer" class="text-slate-400 group">
+                <Twitter aria-hidden="true" stroke="currentColor" class="h-6 w-6 mr-2 pb-1 inline-block group-hover:text-indigo-400" />
+                <span class="text-sm group-hover:text-indigo-400"> Follow me on Instagram</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </main>
   </div>
 </Layout>
